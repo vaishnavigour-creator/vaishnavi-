@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAISHNAVI - PORTFOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --paper:#F6F5F1;
+            --paper-raised:#FFFFFF;
+            --ink:#20262E;
+            --ink--soft:#5B6472;
+            --gold:#D9A441;
+            --teal:#2F6F62;
+            --line:#2F6F62;
+            --radius:14px;
+            --max:800px;
+        }
+        *{box-sizing:border-box; margin:0; padding:0;}
+        html{scroll-behaviour:smooth;}
+
+        body{
+            background: var(--paper);
+            color: var(ink);
+            font-family:'inter', sans-serif;
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+        }
+        body::before{
+            content:"";
+            position:fixed; inset:0;
+            opacity:0.35;
+            pointer-events:none;
+            z-index:0;
+        }
+        a{color:var(--teal); text-decoration:none;}
+        a:hover{text-decoration:underline;}
+        a:focus-visible, button:focus-visible{outline:3px solid var(--gold); outline-offset:3px;}
+
+        h1,h2,h3,h4,h5,h6{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+        .eyebrow{
+            font-family:'IBM Plex Mono', monospace;
+            font-size:0.72rem;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            color:var(--teal);
+        }
+        .wrap{max-width:var(--max); margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+        .wrap{max-width:var(--max); margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+         .hero{padding:96px 0 64px; position:relative;}
+         .hero h1{font-size:clamp(2.4rem, 6vw, 4rem); line-height:1.05; margin:14px 0 18px;}
+         .hero h1 em{font-style:italic; color:var(--teal);}
+         .hero p.lede{max-width:52ch; color:var(--ink--soft); font-size:1.15rem; margin-bottom:32px;}
+         .hero-links{display:flex; gap:14px; flex-wrap:wrap;}
+         .btn{
+            font-family:'inter', sans-serif;
+            font-weight:600;
+            font-size:0.95rem;
+            padding:0px;
+            border-radius:999px;
+            border:1.5px solid var(--ink);
+            border:1.5px solid var(--ink);
+            display:inline-flex; align-items:center; gap:8px;
+            transition:transform .15s ease, background .5s ease;
+         }
+            .btn:hover{transform:translateY(-2px); text-decoration:none;}
+            .btn.solid{background:var(--ink); color:var(--paper-raised) !important;}
+            .btn.solid:hover{background:var(--teal); border-color:var(--teal);}
+
+            .journey{position:relative; padding-left:44px;}
+            .journey::before{
+                content:"";
+                position:absolute; left:14px; top:6px; bottom:6px; width:2px;
+                background-image:-moz-linear-gradient(var(--ink-soft) 60%, transparent 0);
+                background-size:2px 10px;
+                background-repeat: repeat-y;
+                opacity:0.35;
+            }
+            .checkpoint{position:relative; padding:56px 0; border-top:1px solid var(--line);}
+            .checkpoint .eyebrow{margin-bottom:10px; display:block;}
+            .checkpoint p{color:var(--ink--soft); max-width:60ch;}
+
+            .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-top:24px;}
+            .card{background:var(--paper-raised); 
+                border-radius:var(--radius);
+                padding:20px;}
+
+                .card h3{font-family:'inter';font-size:1.02rem; font-weight:700; margin-bottom:6px;}
+                .card p{font-size:0.92rem; color:var(--ink--soft);}
+                .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+                .tag{
+                    font-family:'IBM Plex Mono',monospace;
+                    font-size:0.72rem;
+                    background:#EFEAD9;
+                    color:var(--ink);
+                    padding:5px 10px;
+                    border-radius:6px;
+                }
+
+                .skill-groups{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; margin-top:20px;}
+                .skill-groups h3{font-size:0.95rem; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal); margin-bottom:10px; font-weight:500;}
+
+                .status-badge{
+                    display:inline-flex; align-items:center; gap:8px;
+                    font-family:'IBM Plex Mono',monospace; font-size:0.75rem;
+                    background:#EFEAD9; padding:6px 12px; border-radius:999px;
+                    margin-bottom:18px;
+                }
+                .status-badge .dot{width:7px; height:7px; border-radius:50%; background:var(--paper-raised);}
+
+                .contact{padding:72px 0 40px; text-align:left;}
+                .contact-links{display:flex; flex-wrap:wrap; gap:20px; margin-top:18px;font-family: 'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing: 0.06em; color:var(--teal);}
+                footer{padding:28px 0 60px; color:var(--ink-soft); font-size:0.85rem;}
+
+                .checkpoint{opacity:0; transform:translateY(14px); transition:opacity .6s ease;}
+                .checkpoint.visible{opacity:1; transform:none;}
+                @media (prefers-reduced-motion:reduce){
+                    .checkpoint{opacity:1; transform:none; transition:none;}
+                }
+
+                @media(max-width:560px){
+                    .journey{padding-left:34px;}
+                    .checkpoint::before{left:-34px; width:24px; height:24px; font-size:0.6rem;}
+                }
+    </style>
+    </head>
+    <body>
+
+                <section class="hero-wrap">
+                    <span class="eyebrow">Portfolio . [2026]</span>
+                    <h1> Hi, I'm Vaishnavi Gour.<br><em>Just getting started.</em></h1>
+                    <p class="lede">
+                        I'm first year student at woxsen university, pursuing 
+                        Computer Science Engineering. This is a small log of where I've been, what I'm learning,
+                        and where I'm headed next.
+                        </p>
+                        <div class="hero-links">
+                            <a class="btn solid" href="#contact">Get in touch</a>
+                            <a class="btn" href="[link-to-resume.pdf]">Download resume</a>
+                           </div>
+                         </section>
+
+                         <div class="wrap journey">
+
+                           <article class="checkpoint" data-num="01">
+                        <p>
+                             I just finished school at The Katara Hills School with the maths and
+                             science stream,and I'll be starting computer science engineering (general) at
+                             Woxsen University this year. My intrest in Computer Science grew from my curiosity to understandthe working principles
+                             behind modern technologies and the processes that make them function effeciently. This curiosity inspired me 
+                             to explore the field further and motivated me to pursue Computer Science as my career. 
+                             <br>
+                             I enjoy listening to music , exploring my creativity, and capturing photographs of everyday moments and 
+                             random things that catch my attention.
+                        </p>
+                    </article>
+
+                    <article class="checkpoint" data-num="02">
+                    <span class="eyebrow">The record so far</span>
+                    <h2>Academics background</h2>
+                                        <div class="grid">
+                                        <div class="card">               
+                                                <h3>The Katara Hills</h3>
+                                                        <p>State Board, Class 12, 2026 <br>Result:78%</p>
+                                                    </div>
+                                                    <div class="card">
+                                                        <h3>Self-study</h3>
+                                                        <p> I completed my class 12th through a dummy school and primarily relied on self-study while preparing for both
+                                                                MP Board examination and JEE. This experience helped me develop discipline, consistency, and independent learning skills.</p>
+                                                        </div>
+                                                        </div>
+                        </article>
+
+                        <article class="checkpoint" data-num="03">
+                         <span class="eyebrow">Tools in my kit - still growing</span>
+                         </div>
+                         </div>
+                         </div>
+                          <h3>Currently learning</h3>
+                          <div class="tag-row">
+                          <span class="tag">Python</span><span class="tag">Git Hub</span>
+                          </div>
+                          </div>
+                          </div>
+                          <h3>Soft Skills</h3>
+                          <div class="tag-row">
+                            <span class="tag">Public speaking</span><span class="tag">Teamwork</span>
+                            <span class="tag">Time management</span>
+                        </div>
+                        </div>
+                        </div>
+                        </article>
+
+                        <article class="checkpoint" data-num="04">
+                            <span class="eyebrow">Moments I'm proud of</span>
+                            <h2>Achievements &amp; activities </h2>
+                            <div class="grid">
+                                <div class="card">
+                                    <h3> National Science Olympiad</h3>
+                                    <p>I've secured first position in this olympiad. </p>
+                                <div>
+                                <div class ="card">
+                                    <h3>Debate Competition</h3>
+                                    <p>Our team secured second position in the district debate competition</p>
+                                <div>
+                                <div class="card"
+                                <h3>Extracurricular</h3>
+                                <p>I've been a part of school ministry and the event organizing team ofour school. </p>
+                            </div>
+                            <div class="card">
+                                <h3>Online Courses</h3>
+                                <p>Leap Program - Introduction to git and github , Getting started with git and github, Network Security, Python fundamentals</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="checkpoint" data-num="06">
+                        <span class="eyebrow">Where this is headed</span>
+                        <h2>Goals</h2>
+                        <p>My goal is to embrace every learning opportunity, strengthen my technical and creative abilities, and grow into a confident
+                            and responsible computer science professional.
+                        </p>
+                        
+                    </article>
+
+                    </div>
+
+                    <section class="contact wrap" id="contact">
+                        <span class="eyebrow">Let's talk</span>
+                        <h2>Get in touch</h2>
+                        <p style="color:var(--ink--soft);margin-top:8px; max-width:50ch;">
+                            Feel free to reach out - for a project , a question or just to say hi.
+                        </p>
+                        <div class="contact-links">
+                            <a href="mail to:[[gourvaishnavi81@gmail.com]]">[[gourvaishnavi81@gmail.com]]</a>
+                        </div>
+                    </section>
+
+                    <footer class="wrap">
+                        &copy;[2026] Vaishnavi Gour.
+                    </footer>
+
+                    <script>
+                        const items = document.querySelectorAll('.checkpoint');
+                        const io = new IntersectionObserver((entries) => {
+                            entries.forEach(e=> {
+                                if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target)}
+                            });
+                        }, { threshold:0.15});
+                        items.forEach(el => io.observe(el));
+                    </script>
+                    
+</body>
+</html>
+
+
+
+
+
+                          
